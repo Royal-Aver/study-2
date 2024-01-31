@@ -3,11 +3,24 @@
 # "Min = v_min, max = v_max, sum = v_sum"
 # После объявления функции прочитайте (с помощью функции input) список целых чисел,
 # записанных в одну строку через пробел, и вызовите функцию с этим списком.
-def find_min_max_sum(list_num):  # 8 11 5 -10 12 0
-    v_min = min(list_num)
-    v_max = max(list_num)
-    v_sum = sum(list_num)
-    print(f"Min = {v_min}, max = {v_max}, sum = {v_sum}")
+# def find_min_max_sum(list_num):  # 8 11 5 -10 12 0
+#     v_min = min(list_num)
+#     v_max = max(list_num)
+#     v_sum = sum(list_num)
+#     print(f"Min = {v_min}, max = {v_max}, sum = {v_sum}")
+#
+# list_num = list(map(int, input().split()))
+# find_min_max_sum(list_num)
 
-list_num = list(map(int, input().split()))
-find_min_max_sum(list_num)
+
+# Объявите функцию для проверки числа на нечетность (возвращается True,
+# если переданное число нечетное и False, если число четное).
+# После объявления функции прочитайте (с помощью функции input) список целых значений,
+# записанных в одну строку через пробел. И, используя генератор списков и созданную функцию,
+# сформируйте список из нечетных значений на основе введенного исходного списка.
+def is_odd(num):
+    return True if num % 2 != 0 else False
+
+lst_num_in = list(map(int, input().split()))
+lst = [num for num in lst_num_in if is_odd(num)]
+print(*lst)
