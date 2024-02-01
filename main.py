@@ -30,11 +30,22 @@
 # После объявления функции прочитайте (с помощью функции input) список названий городов,
 # записанных в одну строку через пробел.
 # Затем, используя генератор словарей и созданную функцию, сформируйте словарь d
-def len_str(str):
-    return len(str)
+# def len_str(str):
+#     return len(str)
+#
+#
+# city_in = input().split()  #  Воронеж Лондон Тверь Омск Уфа
+# d = {x: len_str(x) for x in city_in}
+# print(d)
 
 
-city_in = input().split()  #  Воронеж Лондон Тверь Омск Уфа
-d = {x: len_str(x) for x in city_in}
-print(d)
+# Быстрый алгоритм Евклида (нахождение наибольшего общего числителя)
+def get_nod(a, b):
+        if a < b:
+            a, b = b, a
+        while b != 0:
+            a, b = b, a % b
+        return a
+
+print(get_nod(18, 24))
 
