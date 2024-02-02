@@ -52,11 +52,21 @@ import time
 
 # Объявите функцию с именем get_even, которая принимает произвольное количество чисел
 # в качестве аргументов и возвращает список, составленный только из четных переданных значений.
-def get_even(*args):
-    lst = [x for x in args if x % 2 == 0]
-    return lst
+# def get_even(*args):
+#     lst = [x for x in args if x % 2 == 0]
+#     return lst
+#
+#
+# num_in = list(map(int, input().split()))
+# print(*get_even(*num_in))
 
 
-num_in = list(map(int, input().split()))
-print(*get_even(*num_in))
+# Имеется словарь. Дополнительно вводятся еще пункты меню в виде строк.
+# Необходимо эту введенную информацию преобразовать в словарь и добавить к словарю menu,
+# используя оператор распаковки для словарей. На результирующий словарь должна вести переменная menu.
+menu = {'Главная': 'home', 'Архив': 'archive', 'Новости': 'news'}
+lst_in = ['Города=about-cities', 'Машины=read-of-cars', 'Самолеты=airplanes']
+d = dict([x.split('=') for x in lst_in])
+d_n = {**menu, **d}
+print(d_n)
 
