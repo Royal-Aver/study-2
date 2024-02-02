@@ -38,14 +38,25 @@
 # d = {x: len_str(x) for x in city_in}
 # print(d)
 
-
+import time
 # Быстрый алгоритм Евклида (нахождение наибольшего общего числителя)
-def get_nod(a, b):
-        if a < b:
-            a, b = b, a
-        while b != 0:
-            a, b = b, a % b
-        return a
+# def get_nod(a, b):
+#     if a < b:
+#         a, b = b, a
+#     while b != 0:
+#         a, b = b, a % b
+#     return a
 
-print(get_nod(18, 24))
+# print(get_nod(18, 24))
+
+
+# Объявите функцию с именем get_even, которая принимает произвольное количество чисел
+# в качестве аргументов и возвращает список, составленный только из четных переданных значений.
+def get_even(*args):
+    lst = [x for x in args if x % 2 == 0]
+    return lst
+
+
+num_in = list(map(int, input().split()))
+print(*get_even(*num_in))
 
