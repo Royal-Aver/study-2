@@ -109,15 +109,38 @@ import time
 # с сигнатурой:
 # Вызовите внешнюю функцию counter_add со значением аргумента 2 и результат присвойте переменной cnt.
 # Вызовите внутреннюю функцию через переменную cnt со значением k, введенным с клавиатуры:
-def counter_add(n):
-    def inner_counter(k):
-        nonlocal n
-        n += k
-        return n
+# def counter_add(n):
+#     def inner_counter(k):
+#         nonlocal n
+#         n += k
+#         return n
+#
+#     return inner_counter
 
-    return inner_counter
+
+# k = int(input())
+# cnt = counter_add(2)
+# print(cnt(k))
+
+# Используя замыкания функций, объявите внутреннюю функцию, которая преобразует строку из
+# списка целых чисел, записанных через пробел, либо в список, либо в кортеж.
+# Тип коллекции определяется параметром tp внешней функции.
+# Если tp = 'list', то используется список, иначе (при другом значении) - кортеж.
+# Далее, на вход программы поступают две строки: первая - это значение для параметра tp;
+# вторая - список целых чисел, записанных через пробел.
+# С помощью реализованного замыкания преобразовать эти данные в соответствующую коллекцию.
+# Результат вывести на экран командой (lst - ссылка на коллекцию):
+def type_data(tp):
+    def convert_str_to_list_or_tuple(list_in):
+        if tp == 'list':
+            list_in = list(list_in)
+
+        return list_in
+    return convert_str_to_list_or_tuple
 
 
-k = int(input())
-cnt = counter_add(2)
-print(cnt(k))
+tp_in = (input())
+list_num_in = tuple(map(int, input().split()))
+
+res = type_data(tp_in)
+print(res(list_num_in))
