@@ -82,23 +82,42 @@ import time
 # lst - список на возвращенный функцией filter_lst.
 # Для отбора нужных значений формальному параметру key следует передавать
 # соответствующие определения анонимной функции.
-it = list(map(int, input().split()))  # 5 4 -3 4 5 -24 -6 9 0
+# it = list(map(int, input().split()))  # 5 4 -3 4 5 -24 -6 9 0
+#
+# def filter_lst(it, key=None):
+#     if key == None:
+#         return tuple(it)
+#     res = ()
+#     for x in it:
+#         if key(x):
+#             res += (x, )
+#     return res
+#
+#
+# f1 = None
+# f2 = lambda x: x < 0
+# f3 = lambda x: x >= 0
+# f4 = lambda x: x > 3 and x < 6
+#
+# for f in [f1, f2, f3, f4]:
+#     lst = filter_lst(it, key=f)
+#     print(*lst)
 
-def filter_lst(it, key=None):
-    if key == None:
-        return tuple(it)
-    res = ()
-    for x in it:
-        if key(x):
-            res += (x, )
-    return res
+
+# Используя замыкания функций, объявите внутреннюю функцию,
+# которая увеличивает значение своего аргумента на некоторую величину n - параметр внешней функции
+# с сигнатурой:
+# Вызовите внешнюю функцию counter_add со значением аргумента 2 и результат присвойте переменной cnt.
+# Вызовите внутреннюю функцию через переменную cnt со значением k, введенным с клавиатуры:
+def counter_add(n):
+    def inner_counter(k):
+        nonlocal n
+        n += k
+        return n
+
+    return inner_counter
 
 
-f1 = None
-f2 = lambda x: x < 0
-f3 = lambda x: x >= 0
-f4 = lambda x: x > 3 and x < 6
-
-for f in [f1, f2, f3, f4]:
-    lst = filter_lst(it, key=f)
-    print(*lst)
+k = int(input())
+cnt = counter_add(2)
+print(cnt(k))
