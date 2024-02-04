@@ -130,17 +130,31 @@ import time
 # вторая - список целых чисел, записанных через пробел.
 # С помощью реализованного замыкания преобразовать эти данные в соответствующую коллекцию.
 # Результат вывести на экран командой (lst - ссылка на коллекцию):
-def type_data(tp):
-    def convert_str_to_list_or_tuple(list_in):
-        if tp == 'list':
-            list_in = list(list_in)
+# def type_data(tp):
+#     def convert_str_to_list_or_tuple(list_in):
+#         if tp == 'list':
+#             list_in = list(list_in)
+#
+#         return list_in
+#     return convert_str_to_list_or_tuple
+#
+#
+# tp_in = (input())
+# list_num_in = tuple(map(int, input().split()))
+#
+# res = type_data(tp_in)
+# print(res(list_num_in))
 
-        return list_in
-    return convert_str_to_list_or_tuple
 
+def decorator_func_show(func):
+    def wrapper(width, height):
+        print(f"Площадь прямоугольника: {func(width, height)}")
 
-tp_in = (input())
-list_num_in = tuple(map(int, input().split()))
+    return wrapper
 
-res = type_data(tp_in)
-print(res(list_num_in))
+def get_sq(width, height):
+    res = width * height
+    return res
+
+get_sq = decorator_func_show(get_sq)
+get_sq(2, 4)
