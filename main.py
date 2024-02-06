@@ -11,8 +11,7 @@
 #
 # list_num = list(map(int, input().split()))
 # find_min_max_sum(list_num)
-
-
+import shlex
 # Объявите функцию для проверки числа на нечетность (возвращается True,
 # если переданное число нечетное и False, если число четное).
 # После объявления функции прочитайте (с помощью функции input) список целых значений,
@@ -146,15 +145,23 @@ import time
 # print(res(list_num_in))
 
 
-def decorator_func_show(func):
-    def wrapper(width, height):
-        print(f"Площадь прямоугольника: {func(width, height)}")
+# def decorator_func_show(func):
+#     def wrapper(width, height):
+#         print(f"Площадь прямоугольника: {func(width, height)}")
+#
+#     return wrapper
+#
+# def get_sq(width, height):
+#     res = width * height
+#     return res
+#
+# get_sq = decorator_func_show(get_sq)
+# get_sq(2, 4)
 
-    return wrapper
-
-def get_sq(width, height):
-    res = width * height
-    return res
-
-get_sq = decorator_func_show(get_sq)
-get_sq(2, 4)
+# На вход программы поступают два целых числа a и b (a < b), записанные в одну строчку через пробел.
+# Определите генератор, который бы выдавал модули целых чисел из диапазона [a; b].
+# В цикле выведите первые пять значений этого генератора.
+# Каждое значение с новой строки. (Гарантируется, что пять значений имеются).
+a, b = map(int, input().split())
+gen = list(abs(x) for x in range(a, b))
+print(*gen[:5], sep='\n')
