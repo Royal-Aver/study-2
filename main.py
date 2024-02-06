@@ -162,6 +162,20 @@ import time
 # Определите генератор, который бы выдавал модули целых чисел из диапазона [a; b].
 # В цикле выведите первые пять значений этого генератора.
 # Каждое значение с новой строки. (Гарантируется, что пять значений имеются).
-a, b = map(int, input().split())
-gen = list(abs(x) for x in range(a, b))
-print(*gen[:5], sep='\n')
+# a, b = map(int, input().split())
+# gen = list(abs(x) for x in range(a, b))
+# print(*gen[:5], sep='\n')
+
+
+
+# Используя символы малых букв латинского алфавита (строка ascii_lowercase)
+# запишите генератор, который бы возвращал все сочетания из двух букв латинского алфавита.
+# Выведите первые 50 сочетаний на экран в строку через пробел.
+from string import ascii_lowercase
+lst = []
+for i in ascii_lowercase:
+    for j in ascii_lowercase:
+        if len(lst) < 50:
+            a = i + j
+            lst.append(a)
+print(*lst)
