@@ -171,11 +171,23 @@ import time
 # Используя символы малых букв латинского алфавита (строка ascii_lowercase)
 # запишите генератор, который бы возвращал все сочетания из двух букв латинского алфавита.
 # Выведите первые 50 сочетаний на экран в строку через пробел.
-from string import ascii_lowercase
-lst = []
-for i in ascii_lowercase:
-    for j in ascii_lowercase:
-        if len(lst) < 50:
-            a = i + j
-            lst.append(a)
-print(*lst)
+# from string import ascii_lowercase
+# lst = []
+# for i in ascii_lowercase:
+#     for j in ascii_lowercase:
+#         if len(lst) < 50:
+#             a = i + j
+#             lst.append(a)
+# print(*lst)
+
+
+n = int(input())
+count = 0
+for i in range(n):
+    n = input()
+    if n.count('11') >= 3:
+        count += 1
+print(count)
+
+
+
