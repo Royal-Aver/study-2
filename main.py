@@ -206,11 +206,23 @@ import time
 # На вход программе подается строка текста, в которой буква «h» встречается минимум два раза.
 # Напишите программу, которая удаляет из этой
 # строки первое и последнее вхождение буквы «h», а также все символы, находящиеся между ними.
-s = input()
-if s == 'hh':
-    s = ''
-else:
-    start_h = s.find('h')
-    end_h = s.rfind('h')
-    s = s[:start_h ] + s[end_h + 1:]
-print(s)
+# s = input()
+# if s == 'hh':
+#     s = ''
+# else:
+#     start_h = s.find('h')
+#     end_h = s.rfind('h')
+#     s = s[:start_h ] + s[end_h + 1:]
+# print(s)
+
+
+# Напишите функцию, принимающую в качестве аргумента натуральное число и возвращающую
+# список всех делителей данного числа.
+def get_factors(num):
+    lst = [x for x in range(1, num + 1) if num % x == 0]
+    return lst
+
+
+n = int(input())
+
+print(get_factors(n))
