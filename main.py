@@ -181,13 +181,24 @@ import time
 # print(*lst)
 
 
-n = int(input())
-count = 0
-for i in range(n):
-    n = input()
-    if n.count('11') >= 3:
-        count += 1
-print(count)
+# n = int(input())
+# count = 0
+# for i in range(n):
+#     n = input()
+#     if n.count('11') >= 3:
+#         count += 1
+# print(count)
 
 
+#  вход программе подается строка текста. Если в этой строке буква «f» встречается только один раз,
+#  выведите её индекс. Если она встречается два и более раза, выведите индексы её первого и
+#  последнего вхождения на одной строке, разделенные символом пробела.
+#  Если буква «f» в данной строке не встречается, следует вывести «NO».
+s = input()
+if s.count('f') == 1:
+    print(s.index('f'))
+elif s.count('f') > 1:
+    print(s.find('f'), s.rfind('f'))
+else:
+    print('NO')
 
