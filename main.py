@@ -218,11 +218,24 @@ import time
 
 # Напишите функцию, принимающую в качестве аргумента натуральное число и возвращающую
 # список всех делителей данного числа.
-def get_factors(num):
-    lst = [x for x in range(1, num + 1) if num % x == 0]
-    return lst
+# def get_factors(num):
+#     lst = [x for x in range(1, num + 1) if num % x == 0]
+#     return len(lst)
+#
+# n = int(input())
+# print(get_factors(n))
 
 
-n = int(input())
-
-print(get_factors(n))
+# Напишите программу, которая выводит индекс второго вхождения буквы «f».
+# Если буква «f» встречается только один раз, выведите число −1,
+# а если не встречается ни разу, выведите число −2.
+s = 'fffffffffffffff'
+first_f_index = s.find('f')
+if first_f_index == -1:
+    print(-2)
+else:
+    second_f_index = s.find('f', first_f_index + 1)
+    if second_f_index == -1:
+        print(-1)
+    else:
+        print(second_f_index)
