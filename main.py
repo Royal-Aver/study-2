@@ -229,13 +229,42 @@ import time
 # Напишите программу, которая выводит индекс второго вхождения буквы «f».
 # Если буква «f» встречается только один раз, выведите число −1,
 # а если не встречается ни разу, выведите число −2.
-s = 'fffffffffffffff'
-first_f_index = s.find('f')
-if first_f_index == -1:
-    print(-2)
-else:
-    second_f_index = s.find('f', first_f_index + 1)
-    if second_f_index == -1:
-        print(-1)
-    else:
-        print(second_f_index)
+# s = 'fffffffffffffff'
+# first_f_index = s.find('f')
+# if first_f_index == -1:
+#     print(-2)
+# else:
+#     second_f_index = s.find('f', first_f_index + 1)
+#     if second_f_index == -1:
+#         print(-1)
+#     else:
+#         print(second_f_index)
+
+
+# def two_lst_to_dict(*args, **kwargs):
+#     def wrapper(*args, **kwargs):
+#         lst1, lst2 = str_to_lst(str1, str2)
+#         return dict(zip(lst1, lst2))
+#
+#     return wrapper
+#
+# @two_lst_to_dict
+# def str_to_lst(str1, str2):
+#     return str1.split(), str2.split()
+#
+# str1 = input()
+# str2 = input()
+#
+# lst = str_to_lst(str1, str2)  # house river tree car
+# # lst2 = str_to_lst(str2)           # дом река дерево машина
+# print(lst)
+
+
+# Вводятся названия городов в одну строчку через пробел. Необходимо определить функцию filter,
+# которая бы возвращала только названия длиной более 5 символов.
+# Извлеките первые три полученных значения с помощью функции next и
+# отобразите их на экране в одну строчку через пробел. (Полагается, что минимум три значения имеются).
+lst_city = input().split()
+res = filter(lambda x: len(x) > 5, lst_city)
+for i in range(3):
+    print(next(res), end=' ')
