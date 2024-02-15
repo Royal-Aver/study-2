@@ -310,13 +310,55 @@ import time
 #  А также в адресе должен быть символ "@",
 #  а после него символ точки "." (между ними, конечно же, могут быть и другие символы).
 # Результат отобразить в виде строки email-адресов, записанных через пробел.
-import re
-lst1 = input().split()
-pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+# import re
+# lst1 = input().split()
+# pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+#
+# def check_correct_email(email):
+#     return re.match(pattern, email)
+#
+#
+# res = filter(check_correct_email, lst1)
+# print(*res)
 
-def check_correct_email(email):
-    return re.match(pattern, email)
+
+# ООП
+class Restaurant():
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name,
+        self.cuisine_type = cuisine_type
+
+    def describe_restaurant(self):
+        print(self.restaurant_name, self.cuisine_type)
+
+    def open_restaurant(self):
+        print(f'Restaurant is {self.cuisine_type}')
 
 
-res = filter(check_correct_email, lst1)
-print(*res)
+restaurant = Restaurant('Pizza', 'closed')
+
+
+class User():
+    def __init__(self, first_name, last_name, password, country):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.password = password
+        self.country = country
+
+
+    def describe_user(self):
+        print(f'Its {self.first_name} {self.last_name}, where live in {self.country}. Password we not say!!!')
+
+
+    def greet_user(self):
+        print(f'Hello {self.first_name}!')
+
+
+arina = User('Arina', 'Stakchieva', 123456, 'USA')
+jura = User('Jura', 'Aver', 1234567, 'Russia')
+
+arina.greet_user()
+arina.describe_user()
+
+jura.greet_user()
+jura.describe_user()
