@@ -323,42 +323,52 @@ import time
 
 
 # ООП
-class Restaurant():
-    def __init__(self, restaurant_name, cuisine_type):
-        self.restaurant_name = restaurant_name,
-        self.cuisine_type = cuisine_type
+# class Restaurant():
+#     def __init__(self, restaurant_name, cuisine_type):
+#         self.restaurant_name = restaurant_name
+#         self.cuisine_type = cuisine_type
+#         self.number_served = 0
+#
+#     def describe_restaurant(self):
+#         print(self.restaurant_name, self.cuisine_type)
+#
+#     def open_restaurant(self):
+#         print(f'Restaurant is {self.cuisine_type}')
+#
+#     def set_number_served(self):
+#         print(self.number_served)
+#
+#     def update_number_served(self, amount):
+#         self.number_served = amount
+#
+#
+# restaurant = Restaurant('Pizza', 'closed')
+# restaurant.update_number_served(23)
+# restaurant.set_number_served()
+#
+# class User():
+#     def __init__(self, first_name, last_name, password, country):
+#         self.first_name = first_name
+#         self.last_name = last_name
+#         self.password = password
+#         self.country = country
+#
+#
+#     def describe_user(self):
+#         print(f'Its {self.first_name} {self.last_name}, where live in {self.country}. Password we not say!!!')
+#
+#
+#     def greet_user(self):
+#         print(f'Hello {self.first_name}!')
+#
+#
+# arina = User('Arina', 'Stakchieva', 123456, 'USA')
+# jura = User('Jura', 'Aver', 1234567, 'Russia')
 
-    def describe_restaurant(self):
-        print(self.restaurant_name, self.cuisine_type)
 
-    def open_restaurant(self):
-        print(f'Restaurant is {self.cuisine_type}')
-
-
-restaurant = Restaurant('Pizza', 'closed')
-
-
-class User():
-    def __init__(self, first_name, last_name, password, country):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.password = password
-        self.country = country
-
-
-    def describe_user(self):
-        print(f'Its {self.first_name} {self.last_name}, where live in {self.country}. Password we not say!!!')
-
-
-    def greet_user(self):
-        print(f'Hello {self.first_name}!')
-
-
-arina = User('Arina', 'Stakchieva', 123456, 'USA')
-jura = User('Jura', 'Aver', 1234567, 'Russia')
-
-arina.greet_user()
-arina.describe_user()
-
-jura.greet_user()
-jura.describe_user()
+# На вход программы поступает список целых чисел, записанных в одну строчку через пробел.
+# Необходимо выбрать из них четыре наибольших уникальных значения.
+# Результат вывести на экран в порядке их убывания в одну строчку через пробел.
+num_in = list(map(int, input().split()))  # 10 5 4 -3 2 0 5 10 3
+res = sorted(list(set(num_in)), reverse=True)
+print(res[:4])
