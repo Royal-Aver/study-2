@@ -369,6 +369,31 @@ import time
 # На вход программы поступает список целых чисел, записанных в одну строчку через пробел.
 # Необходимо выбрать из них четыре наибольших уникальных значения.
 # Результат вывести на экран в порядке их убывания в одну строчку через пробел.
-num_in = list(map(int, input().split()))  # 10 5 4 -3 2 0 5 10 3
-res = sorted(list(set(num_in)), reverse=True)
-print(res[:4])
+# num_in = list(map(int, input().split()))  # 10 5 4 -3 2 0 5 10 3
+# res = sorted(list(set(num_in)), reverse=True)
+# print(res[:4])
+
+
+# На вход программы поступает список товаров:
+# Необходимо преобразовать этот список в словарь, ключами которого выступают цены (целые числа),
+# а значениями - соответствующие названия товаров. Необходимо написать функцию,
+# которая бы принимала на входе словарь и возвращала список из наименований трех наиболее дешевых товаров.
+# Вызовите эту функцию и отобразите на экране полученный список в порядке возрастания цены в одну строчку через пробел.
+def convert_to_dict(lst):
+    products_dict = {}
+    for item in lst:
+        name, price = item.split(':')
+        products_dict[int(price)] = name
+    return products_dict
+
+def find_cheapest_goods(products_dict):
+    sorted_products = sorted(products_dict.items())
+    cheapest_goods = [product for price, product in sorted_products[:3]]
+    return cheapest_goods
+
+
+lst_in = ['смартфон:120000', 'яблоко:2', 'сумка:560', 'брюки:2500', 'линейка:10', 'бумага:500']
+
+products = convert_to_dict(lst_in)
+
+print(*find_cheapest_goods(products))
