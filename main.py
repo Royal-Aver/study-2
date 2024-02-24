@@ -399,16 +399,19 @@ import time
 # print(*find_cheapest_goods(products))
 
 
-cmd = input()
+# На вход программе подается строка текста из натуральных чисел. Из неё формируется список чисел.
+# Напишите программу подсчета количества чисел, которые больше предшествующего им в этом списке числа.
 
-match cmd:
-    case 'Top' | 'TOP' | 'top' as cmd:
-        print(f'Команда {cmd.lower()}')
-    case 'Bottom' | 'BOTTOM' | 'bottom' as cmd:
-        print(f'Команда {cmd.lower()}')
-    case 'Right' | 'RIGHT' | 'right' as cmd:
-        print(f'Команда {cmd.lower()}')
-    case 'Left' | 'LEFT' | 'left' as cmd:
-        print(f'Команда {cmd.lower()}')
-    case _:
-        print('Неверная команда')
+def count_num_greater_than_preceding_num(num_list: list) -> int:  # 5 4 3 2 1
+    count = 0
+    for i, el in enumerate(num_list):
+        if i == 0:
+            continue
+        elif el > num_list[i - 1]:
+            count += 1
+    return count
+
+num_in = list(map(int, input().split()))
+
+print(count_num_greater_than_preceding_num(num_in))
+
