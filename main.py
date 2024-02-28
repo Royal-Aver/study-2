@@ -402,16 +402,27 @@ import time
 # На вход программе подается строка текста из натуральных чисел. Из неё формируется список чисел.
 # Напишите программу подсчета количества чисел, которые больше предшествующего им в этом списке числа.
 
-def count_num_greater_than_preceding_num(num_list: list) -> int:  # 5 4 3 2 1
-    count = 0
-    for i, el in enumerate(num_list):
-        if i == 0:
-            continue
-        elif el > num_list[i - 1]:
-            count += 1
-    return count
+# def count_num_greater_than_preceding_num(num_list: list) -> int:  # 5 4 3 2 1
+#     count = 0
+#     for i, el in enumerate(num_list):
+#         if i == 0:
+#             continue
+#         elif el > num_list[i - 1]:
+#             count += 1
+#     return count
+#
+# num_in = list(map(int, input().split()))
+#
+# print(count_num_greater_than_preceding_num(num_in))
 
-num_in = list(map(int, input().split()))
 
-print(count_num_greater_than_preceding_num(num_in))
+# вход программе подается число n. Напишите программу, которая создает и выводит построчно список, состоящий из
+# n списков [[1, 2, ..., n], [1, 2, ..., n], ..., [1, 2, ..., n]].
+n = int(input())
+
+elem = [i for i in range(1, n + 1)]
+for _ in range(n):
+    print(elem)
+
+
 
