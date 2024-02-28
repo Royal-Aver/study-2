@@ -418,11 +418,26 @@ import time
 
 # вход программе подается число n. Напишите программу, которая создает и выводит построчно список, состоящий из
 # n списков [[1, 2, ..., n], [1, 2, ..., n], ..., [1, 2, ..., n]].
-n = int(input())
+# n = int(input())
+#
+# elem = [i for i in range(1, n + 1)]
+# for _ in range(n):
+#     print(elem)
 
-elem = [i for i in range(1, n + 1)]
-for _ in range(n):
-    print(elem)
 
+# алгоритм сортировки пузырьком - bubble sort - Сложность алгоритма O(n**2):
 
+arr = [64, 34, 25, 12, 22, 11, 90]
 
+n = len(arr)
+
+for i in range(n):
+    flag = False
+    for j in range(n - i - 1):
+        if arr[j] > arr[j + 1]:
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            flag = True
+    if not flag:
+        break
+
+print(arr)
