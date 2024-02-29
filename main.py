@@ -426,18 +426,28 @@ import time
 
 
 # алгоритм сортировки пузырьком - bubble sort - Сложность алгоритма O(n**2):
+# arr = [64, 34, 25, 12, 22, 11, 90]
+#
+# n = len(arr)
+#
+# for i in range(n):
+#     flag = False
+#     for j in range(n - i - 1):
+#         if arr[j] > arr[j + 1]:
+#             arr[j], arr[j + 1] = arr[j + 1], arr[j]
+#             flag = True
+#     if not flag:
+#         break
+#
+# print(arr)
 
-arr = [64, 34, 25, 12, 22, 11, 90]
 
-n = len(arr)
+# Напишите программу, выводящую следующий список: ['a', 'bb', 'ccc', 'dddd', 'eeeee', 'ffffff', ...]
+lst_in = 'abcdefghijklmnopqrstuvwxyz'
+lst = []
 
-for i in range(n):
-    flag = False
-    for j in range(n - i - 1):
-        if arr[j] > arr[j + 1]:
-            arr[j], arr[j + 1] = arr[j + 1], arr[j]
-            flag = True
-    if not flag:
-        break
+for i, el in enumerate(lst_in):
+    lst.append(el * (i + 1))
 
-print(arr)
+print(lst)
+
