@@ -453,17 +453,30 @@ import time
 
 # На вход программе подается натуральное число n и n строк, а затем число k. Напишите программу, которая выводит
 #  k-ую букву из введенных строк на одной строке без пробелов.
-num_in = input().split() # abcdef bcdefg cdefgh defghi efghij
+# num_in = input().split() # abcdef bcdefg cdefgh defghi efghij
+#
+# k = int(input())
+# res_str = ''
+#
+# for _ in num_in:
+#     if k > len(_):
+#         continue
+#     else:
+#         res_str += _[k - 1]
+#
+# print(res_str)
 
-k = int(input())
-res_str = ''
 
-for _ in num_in:
-    if k > len(_):
-        continue
-    else:
-        res_str += _[k - 1]
+# Уравнение параболы имеет вид y = ax ** 2 + bx +c. Напишите программу, которая по введенным значениям
+# a,b,c определяет и выводит вершину параболы.
+def calculate_vert_parabola(a: int,
+                            b: int,
+                            c: int) -> tuple:
+    x = -(b / (2 * a))
+    y = ((4 * a * c) - (b ** 2)) / (4 * a)
+    return x, y
 
-print(res_str)
+a, b, c = map(int, input().split())
+print(calculate_vert_parabola(a, b, c))
 
 
