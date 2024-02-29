@@ -443,11 +443,27 @@ import time
 
 
 # Напишите программу, выводящую следующий список: ['a', 'bb', 'ccc', 'dddd', 'eeeee', 'ffffff', ...]
-lst_in = 'abcdefghijklmnopqrstuvwxyz'
-lst = []
+# lst_in = 'abcdefghijklmnopqrstuvwxyz'
+# lst = []
+#
+# for i, el in enumerate(lst_in):
+#     lst.append(el * (i + 1))
+#
+# print(lst)
 
-for i, el in enumerate(lst_in):
-    lst.append(el * (i + 1))
+# На вход программе подается натуральное число n и n строк, а затем число k. Напишите программу, которая выводит
+#  k-ую букву из введенных строк на одной строке без пробелов.
+num_in = input().split() # abcdef bcdefg cdefgh defghi efghij
 
-print(lst)
+k = int(input())
+res_str = ''
+
+for _ in num_in:
+    if k > len(_):
+        continue
+    else:
+        res_str += _[k - 1]
+
+print(res_str)
+
 
