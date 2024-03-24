@@ -511,8 +511,18 @@ import time
 
 # Дополните приведенный код так,
 # чтобы он вывел сумму минимального и максимального элементов множества numbers.
-numbers = {1.414, 12.5, 3.1415, 2.718, 9.8, 1.414, 1.1618, 1.324, 2.718, 1.324}
+# numbers = {1.414, 12.5, 3.1415, 2.718, 9.8, 1.414, 1.1618, 1.324, 2.718, 1.324}
+#
+# max_num = max(numbers)
+# min_num = min(numbers)
+# print(sum((max_num, min_num)))
 
-max_num = max(numbers)
-min_num = min(numbers)
-print(sum((max_num, min_num)))
+
+# Напишите программу для вывода общего количества уникальных символов
+# во всех считанных словах без учета регистра.
+num_in = int(input())
+res = set()
+for i in range(num_in):
+    str_in = set(input().lower())
+    res = res.union(str_in)
+print(len(res))
