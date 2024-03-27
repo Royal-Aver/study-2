@@ -533,13 +533,29 @@ import time
 # равным сумме соответствующих значений из первого и второго словаря;
 # если ключ есть только в одном из словарей, добавьте его в результирующий словарь с его текущим значением.
 # Результирующий словарь необходимо присвоить переменной result.
-dict1 = {'a': 100, 'z': 333, 'b': 200, 'c': 300, 'd': 45, 'e': 98, 't': 76, 'q': 34, 'f': 90, 'm': 230}
-dict2 = {'a': 300, 'b': 200, 'd': 400, 't': 777, 'c': 12, 'p': 123, 'w': 111, 'z': 666}
+# dict1 = {'a': 100, 'z': 333, 'b': 200, 'c': 300, 'd': 45, 'e': 98, 't': 76, 'q': 34, 'f': 90, 'm': 230}
+# dict2 = {'a': 300, 'b': 200, 'd': 400, 't': 777, 'c': 12, 'p': 123, 'w': 111, 'z': 666}
+#
+# result = dict2.copy()
+# for i in dict1:
+#     if i in result:
+#         result[i] += dict1[i]
+#     else:
+#         result[i] = dict1[i]
+# print(result)
 
-result = dict2.copy()
-for i in dict1:
-    if i in result:
-        result[i] += dict1[i]
-    else:
-        result[i] = dict1[i]
-print(result)
+
+# Дополните приведенный код, чтобы он вывел наиболее часто встречающееся слово строки s.
+# Если таких слов несколько, должно быть выведено то, что меньше в лексикографическом порядке.
+s = 'orange strawberry barley gooseberry apple apricot barley currant orange melon pomegranate banana banana orange barley apricot plum grapefruit banana quince strawberry barley grapefruit banana grapes melon strawberry apricot currant currant gooseberry raspberry apricot currant orange lime quince grapefruit barley banana melon pomegranate barley banana orange barley apricot plum banana quince lime grapefruit strawberry gooseberry apple barley apricot currant orange melon pomegranate banana banana orange apricot barley plum banana grapefruit banana quince currant orange melon pomegranate barley plum banana quince barley lime grapefruit pomegranate barley'
+s = s.split()
+d = {}
+for i in s:
+    d[i] = d.get(i, 0) + 1
+
+n_l = []
+max_v = max(d.values())
+for k, v in d.items():
+    if v == max_v:
+        n_l.append(k)
+print(sorted(n_l)[0])
