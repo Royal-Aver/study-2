@@ -599,8 +599,22 @@ import time
 # Напишите программу, которая с помощью модуля random моделирует броски монеты.
 # Программа принимает на вход количество попыток и выводит результаты бросков:
 # Орел или Решка (каждое на отдельной строке).
-import random
+# import random
+#
+# n = int(input())
+# for _ in range(n):
+#     print('Орел') if random.randint(0, 1) else print('Решка')
 
-n = int(input())
-for _ in range(n):
-    print('Орел') if random.randint(0, 1) else print('Решка')
+
+# Напишите программу, которая с помощью модуля random генерирует случайный пароль.
+# Программа принимает на вход длину пароля и выводит случайный пароль,
+# содержащий только символы английского алфавита a..z, A..Z (в нижнем и верхнем регистре).
+import random as r
+
+length = int(input())
+passw = ''
+for _ in range(length):
+    char = r.choice([r.randint(65, 90), r.randint(97, 122)])
+    passw += chr(char)
+
+print(passw)
