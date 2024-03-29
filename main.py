@@ -547,15 +547,60 @@ import time
 
 # Дополните приведенный код, чтобы он вывел наиболее часто встречающееся слово строки s.
 # Если таких слов несколько, должно быть выведено то, что меньше в лексикографическом порядке.
-s = 'orange strawberry barley gooseberry apple apricot barley currant orange melon pomegranate banana banana orange barley apricot plum grapefruit banana quince strawberry barley grapefruit banana grapes melon strawberry apricot currant currant gooseberry raspberry apricot currant orange lime quince grapefruit barley banana melon pomegranate barley banana orange barley apricot plum banana quince lime grapefruit strawberry gooseberry apple barley apricot currant orange melon pomegranate banana banana orange apricot barley plum banana grapefruit banana quince currant orange melon pomegranate barley plum banana quince barley lime grapefruit pomegranate barley'
-s = s.split()
-d = {}
-for i in s:
-    d[i] = d.get(i, 0) + 1
+# s = 'orange strawberry barley gooseberry apple apricot barley currant orange melon pomegranate banana banana orange barley apricot plum grapefruit banana quince strawberry barley grapefruit banana grapes melon strawberry apricot currant currant gooseberry raspberry apricot currant orange lime quince grapefruit barley banana melon pomegranate barley banana orange barley apricot plum banana quince lime grapefruit strawberry gooseberry apple barley apricot currant orange melon pomegranate banana banana orange apricot barley plum banana grapefruit banana quince currant orange melon pomegranate barley plum banana quince barley lime grapefruit pomegranate barley'
+# s = s.split()
+# d = {}
+# for i in s:
+#     d[i] = d.get(i, 0) + 1
+#
+# n_l = []
+# max_v = max(d.values())
+# for k, v in d.items():
+#     if v == max_v:
+#         n_l.append(k)
+# print(sorted(n_l)[0])
 
-n_l = []
-max_v = max(d.values())
-for k, v in d.items():
-    if v == max_v:
-        n_l.append(k)
-print(sorted(n_l)[0])
+
+# Вам доступен список pets, содержащий информацию о собаках и их владельцах.
+# Каждый элемент списка – это кортеж вида (кличка собаки, имя владельца, фамилия владельца, возраст владельца).
+#
+# Дополните приведенный код так, чтобы в переменной result хранился словарь,
+# в котором для каждого владельца будут перечислены его собаки.
+# Ключом словаря должен быть кортеж (имя, фамилия, возраст владельца),
+# а значением – список кличек собак (сохранив исходный порядок следования).
+
+# pets = [('Hatiko', 'Parker', 'Wilson', 50),
+#         ('Rusty', 'Josh', 'King', 25),
+#         ('Fido', 'John', 'Smith', 28),
+#         ('Butch', 'Jake', 'Smirnoff', 18),
+#         ('Odi', 'Emma', 'Wright', 18),
+#         ('Balto', 'Josh', 'King', 25),
+#         ('Barry', 'Josh', 'King', 25),
+#         ('Snape', 'Hannah', 'Taylor', 40),
+#         ('Horry', 'Martha', 'Robinson', 73),
+#         ('Giro', 'Alex', 'Martinez', 65),
+#         ('Zooma', 'Simon', 'Nevel', 32),
+#         ('Lassie', 'Josh', 'King', 25),
+#         ('Chase', 'Martha', 'Robinson', 73),
+#         ('Ace', 'Martha', 'Williams', 38),
+#         ('Rocky', 'Simon', 'Nevel', 32)]
+#
+# result = {}
+#
+# for pet in pets:
+#     owner_key = (pet[1], pet[2], pet[3])
+#     if owner_key not in result:
+#         result[owner_key] = [pet[0]]
+#     else:
+#         result[owner_key].append(pet[0])
+#
+# print(result)
+
+# Напишите программу, которая с помощью модуля random моделирует броски монеты.
+# Программа принимает на вход количество попыток и выводит результаты бросков:
+# Орел или Решка (каждое на отдельной строке).
+import random
+
+n = int(input())
+for _ in range(n):
+    print('Орел') if random.randint(0, 1) else print('Решка')
