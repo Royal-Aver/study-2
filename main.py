@@ -634,13 +634,27 @@ import time
 # print(*biggest_5_nums)
 
 
-def greet(name, *args):
-    name = name.split()
-    name.extend(list(args))
-    s = ' and '.join(name)
-    return f'Hello, {s}!'
+# def greet(name, *args):
+#     name = name.split()
+#     name.extend(list(args))
+#     s = ' and '.join(name)
+#     return f'Hello, {s}!'
+#
+#
+# res = greet('Timur', 'Roman')
+# print(res)
 
 
-res = greet('Timur', 'Roman')
-print(res)
+# Напишите функцию print_products(), которая принимает произвольное количество аргументов и выводит
+# список продуктов (любая непустая строка) по образцу: <номер продукта>) <название продукта>
+# (нумерация продуктов начинается с единицы). Если среди переданных аргументов нет ни одного продукта,
+# необходимо вывести текст Нет продуктов.
+def print_products(*args):
+    lst = [prod for prod in args if type(prod) == str and len(prod) > 0]
+    if len(lst) == 0:
+        print('Нет продуктов')
+    for i, prod in enumerate(lst):
+        print(f'{i + 1}) {prod}')
 
+
+res = print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
