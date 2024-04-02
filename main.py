@@ -649,12 +649,45 @@ import time
 # список продуктов (любая непустая строка) по образцу: <номер продукта>) <название продукта>
 # (нумерация продуктов начинается с единицы). Если среди переданных аргументов нет ни одного продукта,
 # необходимо вывести текст Нет продуктов.
-def print_products(*args):
-    lst = [prod for prod in args if type(prod) == str and len(prod) > 0]
-    if len(lst) == 0:
-        print('Нет продуктов')
-    for i, prod in enumerate(lst):
-        print(f'{i + 1}) {prod}')
+# def print_products(*args):
+#     lst = [prod for prod in args if type(prod) == str and len(prod) > 0]
+#     if len(lst) == 0:
+#         print('Нет продуктов')
+#     for i, prod in enumerate(lst):
+#         print(f'{i + 1}) {prod}')
+#
+#
+# res = print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
 
 
-res = print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
+# Длина большой полуоси пруда будет 2.5 метра, а малой полуоси — 1.75 метра.
+# Запланированная глубина — 0.35 метра.
+# Для оценки стоимости работ необходимо вычислить площадь и объём пруда.
+
+# Из модуля decimal импортируйте тип данных Decimal и параметр getcontext.
+# Из модуля math импортируйте константу "пи".
+from decimal import Decimal, getcontext
+from math import pi
+# Приведите константу "пи" к типу Decimal.
+# Помните, что Decimal() принимает строку, а константа "пи" - это число.
+pi = Decimal(str(pi))
+# Установите необходимую точность для вычислений.
+getcontext().prec = 10
+
+# Объявите функцию ellipse_area() с двумя параметрами.
+def ellipse_area(ellipse_minor_axis_length, ellipse_axis_length):
+    return ellipse_minor_axis_length * ellipse_axis_length * pi
+
+# Объявите три переменные типа Decimal -
+# они должны хранить длины полуосей эллипса и глубину пруда.
+ellipse_minor_axis_length = Decimal('1.75')
+ellipse_axis_length = Decimal('2.5')
+depth = Decimal('0.35')
+
+# Вызовите функцию ellipse_area(), в аргументах передайте длины полуосей эллипса.
+area = ellipse_area(ellipse_minor_axis_length, ellipse_axis_length)
+
+# Вычислите объём пруда: площадь * глубина.
+pond_volume = area * depth
+print(f'Площадь эллипса: {area} кв.м.')
+print(f'Объем воды для наполнения пруда: {pond_volume} куб.м.')
