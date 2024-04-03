@@ -666,28 +666,106 @@ import time
 
 # Из модуля decimal импортируйте тип данных Decimal и параметр getcontext.
 # Из модуля math импортируйте константу "пи".
-from decimal import Decimal, getcontext
-from math import pi
-# Приведите константу "пи" к типу Decimal.
-# Помните, что Decimal() принимает строку, а константа "пи" - это число.
-pi = Decimal(str(pi))
-# Установите необходимую точность для вычислений.
-getcontext().prec = 10
+# from decimal import Decimal, getcontext
+# from math import pi
+# # Приведите константу "пи" к типу Decimal.
+# # Помните, что Decimal() принимает строку, а константа "пи" - это число.
+# pi = Decimal(str(pi))
+# # Установите необходимую точность для вычислений.
+# getcontext().prec = 10
+#
+# # Объявите функцию ellipse_area() с двумя параметрами.
+# def ellipse_area(ellipse_minor_axis_length, ellipse_axis_length):
+#     return ellipse_minor_axis_length * ellipse_axis_length * pi
+#
+# # Объявите три переменные типа Decimal -
+# # они должны хранить длины полуосей эллипса и глубину пруда.
+# ellipse_minor_axis_length = Decimal('1.75')
+# ellipse_axis_length = Decimal('2.5')
+# depth = Decimal('0.35')
+#
+# # Вызовите функцию ellipse_area(), в аргументах передайте длины полуосей эллипса.
+# area = ellipse_area(ellipse_minor_axis_length, ellipse_axis_length)
+#
+# # Вычислите объём пруда: площадь * глубина.
+# pond_volume = area * depth
+# print(f'Площадь эллипса: {area} кв.м.')
+# print(f'Объем воды для наполнения пруда: {pond_volume} куб.м.')
 
-# Объявите функцию ellipse_area() с двумя параметрами.
-def ellipse_area(ellipse_minor_axis_length, ellipse_axis_length):
-    return ellipse_minor_axis_length * ellipse_axis_length * pi
 
-# Объявите три переменные типа Decimal -
-# они должны хранить длины полуосей эллипса и глубину пруда.
-ellipse_minor_axis_length = Decimal('1.75')
-ellipse_axis_length = Decimal('2.5')
-depth = Decimal('0.35')
 
-# Вызовите функцию ellipse_area(), в аргументах передайте длины полуосей эллипса.
-area = ellipse_area(ellipse_minor_axis_length, ellipse_axis_length)
+# В таинственной деревне кото-самураев, каждое послание несет в себе особое значение.
+# Кото-самурай Кэндзи нашел на пути старинный свиток с посланием, в котором заключена важная информация.
+# Свиток содержит строку s, состоящую из английских букв в нижнем регистре.
+# Чтобы раскрыть секрет, Кэндзи должен найти в строке последний неповторяющийся символ.
+# Ваша задача — помочь Кэндзи определить последний уникальный символ в строке s.
+# Если такого символа нет, нужно вернуть число -1.
+# Формат ввода
+# Одна строка, содержащая s — строку, состоящую из строчных английских букв.
+# Длина строки не превышает 10^5 символов.
+# Формат вывода
+# Выведите последний неповторяющийся символ в строке. Если такого символа нет, верните -1.
+# def last_unique_char(s):
+#     char_count = {}
+#
+#     # создаю dict, в котором ключи - символы, а значения - количество ключей в строке
+#     for char in s:
+#         if char in char_count:
+#             char_count[char] += 1
+#         else:
+#             char_count[char] = 1
+#
+#     # пробегаюсь по исходной строке с конца и возвращаю первый элемент == 1
+#     for char in reversed(s):
+#         if char_count[char] == 1:
+#             return char
+#
+#     return -1
+#
+#
+# # Пример использования
+# s = "abacabad"
+# result = last_unique_char(s)
+# print(result)  # Выведет: 'd'
 
-# Вычислите объём пруда: площадь * глубина.
-pond_volume = area * depth
-print(f'Площадь эллипса: {area} кв.м.')
-print(f'Объем воды для наполнения пруда: {pond_volume} куб.м.')
+
+# В деревне цифровых самураев-котов, каждый воин имеет свой уникальный адрес электронной почты
+# для получения важных сообщений и заданий.
+#
+# Каждый валидный адрес электронной почты состоит из локального имени и имени домена, разделенных знаком «@».
+# Помимо строчных букв, электронное письмо может содержать один или несколько символов «.». или «+». Например,
+# в «samurai@ninja.com» «samurai» — это локальное имя, а «ninja.com» — это имя домена.
+#
+# Если вы добавите точки '.' в локальном имени адреса, при отправке эта точка будет проигнорирована.
+# Это правило не распространяется на доменные имена. Например,
+# «samurai.cat@ninja.com» и «samuraicat@ninja.com» пересылают на один и тот же адрес электронной почты.
+#
+# Если вы добавите «+» в локальное имя, все, что находится после первого знака «+», будет игнорироваться,
+# что позволяет фильтровать определенные электронные письма. Это правило не распространяется на
+# доменные имена. Например, «samurai+mouse@ninja.com» будет перенаправлено на «samurai@ninja.com».
+def normalize_email(email):
+    # Шаблон адреса на который будет отправляться почта
+    local_name, domain_name = email.split('@')
+    local_name = local_name.split('+')[0]
+    local_name = local_name.replace('.', '')
+    return local_name + '@' + domain_name
+
+def count_unique_emails(emails):
+    unique_emails = set()
+    for email in emails:
+        normalized_email = normalize_email(email)
+        unique_emails.add(normalized_email)
+    return len(unique_emails)
+
+# Пример использования
+n = int(input("Введите количество адресов электронной почты: "))
+emails = []
+for _ in range(n):
+    email = input()
+    emails.append(email)
+
+print(count_unique_emails(emails))
+
+# samurai.cat@ninja.com
+# samu.rai.cat@ninja.com
+# samurai.cat+warrior@ninja.com
