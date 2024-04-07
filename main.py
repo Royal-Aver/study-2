@@ -743,29 +743,42 @@ import time
 # Если вы добавите «+» в локальное имя, все, что находится после первого знака «+», будет игнорироваться,
 # что позволяет фильтровать определенные электронные письма. Это правило не распространяется на
 # доменные имена. Например, «samurai+mouse@ninja.com» будет перенаправлено на «samurai@ninja.com».
-def normalize_email(email):
-    # Шаблон адреса на который будет отправляться почта
-    local_name, domain_name = email.split('@')
-    local_name = local_name.split('+')[0]
-    local_name = local_name.replace('.', '')
-    return local_name + '@' + domain_name
-
-def count_unique_emails(emails):
-    unique_emails = set()
-    for email in emails:
-        normalized_email = normalize_email(email)
-        unique_emails.add(normalized_email)
-    return len(unique_emails)
-
-# Пример использования
-n = int(input("Введите количество адресов электронной почты: "))
-emails = []
-for _ in range(n):
-    email = input()
-    emails.append(email)
-
-print(count_unique_emails(emails))
+# def normalize_email(email):
+#     # Шаблон адреса на который будет отправляться почта
+#     local_name, domain_name = email.split('@')
+#     local_name = local_name.split('+')[0]
+#     local_name = local_name.replace('.', '')
+#     return local_name + '@' + domain_name
+#
+# def count_unique_emails(emails):
+#     unique_emails = set()
+#     for email in emails:
+#         normalized_email = normalize_email(email)
+#         unique_emails.add(normalized_email)
+#     return len(unique_emails)
+#
+# # Пример использования
+# n = int(input("Введите количество адресов электронной почты: "))
+# emails = []
+# for _ in range(n):
+#     email = input()
+#     emails.append(email)
+#
+# print(count_unique_emails(emails))
 
 # samurai.cat@ninja.com
 # samu.rai.cat@ninja.com
 # samurai.cat+warrior@ninja.com
+
+
+# Дан список numbers, содержащий кортежи чисел. Напишите программу, которая сортирует
+# и выводит список numbers в соответствии с суммой минимального и максимального элемента кортежа.
+numbers = [(10, 10, 10), (30, 45, 56), (81, 80, 39), (1, 2, 3), (12, 45, 67), (-2, -4, 100),
+           (1, 2, 99), (89, 90, 34), (10, 20, 30), (50, 40, 50), (34, 78, 65), (-5, 90, -1)]
+
+def comparator(item):
+    return max(item) + min(item)
+
+
+numbers.sort(key=comparator)
+print(numbers)
