@@ -814,3 +814,22 @@ import time
 # nickname_in = input('Enter your username: ')
 # print(check_nickname(nickname_in))
 
+
+# Напишите программу для определения, является ли число произведением двух чисел из данного набора.
+# Программа должна выводить результат в виде ответа «ДА» или «НЕТ».
+num_nums = int(input())
+
+lst_nums = []
+for _ in range(num_nums):
+    lst_nums.append(int(input()))
+
+mult = int(input())
+res = 'НЕТ'
+
+for i in range(len(lst_nums) - 1):
+    for j in range(i + 1, len(lst_nums)):
+        if lst_nums[i] * [j] == mult:
+            res = 'ДА'
+            break
+
+print(res)
