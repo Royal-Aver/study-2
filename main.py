@@ -773,12 +773,44 @@ import time
 
 # Дан список numbers, содержащий кортежи чисел. Напишите программу, которая сортирует
 # и выводит список numbers в соответствии с суммой минимального и максимального элемента кортежа.
-numbers = [(10, 10, 10), (30, 45, 56), (81, 80, 39), (1, 2, 3), (12, 45, 67), (-2, -4, 100),
-           (1, 2, 99), (89, 90, 34), (10, 20, 30), (50, 40, 50), (34, 78, 65), (-5, 90, -1)]
+# numbers = [(10, 10, 10), (30, 45, 56), (81, 80, 39), (1, 2, 3), (12, 45, 67), (-2, -4, 100),
+#            (1, 2, 99), (89, 90, 34), (10, 20, 30), (50, 40, 50), (34, 78, 65), (-5, 90, -1)]
+#
+# def comparator(item):
+#     return max(item) + min(item)
+#
+#
+# numbers.sort(key=comparator)
+# print(numbers)
 
-def comparator(item):
-    return max(item) + min(item)
+
+# При регистрации на портале каждый эмо бой обязан придумать себе никнейм.
+# Никнейм должен быть не короче восьми символов, содержать в себе хотя бы одну цифру,
+# и хотя бы по одной заглавной и прописной английской букве.
+
+# Вводится никнейм — последовательность букв и цифр без пробелов. Длина строки не превосходит 100 символов.
+
+# Выведите «YES», если ник подходит для эмо боя, и «NO» — в противном случае.
 
 
-numbers.sort(key=comparator)
-print(numbers)
+# def check_nickname(nickname: str) -> str:
+#     if len(nickname) < 8:
+#         return 'NO'
+#
+#     check_num = False
+#     check_upper_letter = False
+#     check_lower_letter = False
+#
+#     for char in nickname:
+#         if char.isdigit():
+#             check_num = True
+#         elif char.islower():
+#             check_upper_letter = True
+#         elif char.isupper():
+#             check_lower_letter = True
+#
+#     return 'YES' if check_num and check_upper_letter and check_lower_letter else 'NO'
+#
+# nickname_in = input('Enter your username: ')
+# print(check_nickname(nickname_in))
+
