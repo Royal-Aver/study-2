@@ -817,19 +817,44 @@ import time
 
 # Напишите программу для определения, является ли число произведением двух чисел из данного набора.
 # Программа должна выводить результат в виде ответа «ДА» или «НЕТ».
-num_nums = int(input())
+# num_nums = int(input())
+#
+# lst_nums = []
+# for _ in range(num_nums):
+#     lst_nums.append(int(input()))
+#
+# mult = int(input())
+# res = 'НЕТ'
+#
+# for i in range(len(lst_nums) - 1):
+#     for j in range(i + 1, len(lst_nums)):
+#         if lst_nums[i] * [j] == mult:
+#             res = 'ДА'
+#             break
+#
+# print(res)
 
-lst_nums = []
-for _ in range(num_nums):
-    lst_nums.append(int(input()))
 
-mult = int(input())
-res = 'НЕТ'
+# Дана строка текста, состоящая из букв русского алфавита "О" и "Р". Буква "О" соответствует
+# выпадению Орла, а буква "Р" - выпадению Решки.
+# Напишите программу, которая подсчитывает наибольшее количество подряд выпавших Решек.
+def max_consecutive_chars(string):
+    max_count = 1
+    current_count = 1
 
-for i in range(len(lst_nums) - 1):
-    for j in range(i + 1, len(lst_nums)):
-        if lst_nums[i] * [j] == mult:
-            res = 'ДА'
-            break
+    if 'Р' not in string:
+        return 0
 
-print(res)
+    for i in range(1, len(string)):
+        if string[i] == 'Р' and string[i-1] == 'Р':
+            current_count += 1
+            max_count = max(max_count, current_count)
+        else:
+            current_count = 1
+
+    return max_count
+
+
+str_in = input()
+print(max_consecutive_chars(str_in))
+
