@@ -838,23 +838,56 @@ import time
 # Дана строка текста, состоящая из букв русского алфавита "О" и "Р". Буква "О" соответствует
 # выпадению Орла, а буква "Р" - выпадению Решки.
 # Напишите программу, которая подсчитывает наибольшее количество подряд выпавших Решек.
-def max_consecutive_chars(string):
-    max_count = 1
-    current_count = 1
+# def max_consecutive_chars(string):
+#     max_count = 1
+#     current_count = 1
+#
+#     if 'Р' not in string:
+#         return 0
+#
+#     for i in range(1, len(string)):
+#         if string[i] == 'Р' and string[i-1] == 'Р':
+#             current_count += 1
+#             max_count = max(max_count, current_count)
+#         else:
+#             current_count = 1
+#
+#     return max_count
+#
+#
+# str_in = input()
+# print(max_consecutive_chars(str_in))
 
-    if 'Р' not in string:
-        return 0
 
-    for i in range(1, len(string)):
-        if string[i] == 'Р' and string[i-1] == 'Р':
-            current_count += 1
-            max_count = max(max_count, current_count)
+# Искусственный интеллект Антон, созданный Гилфойлом, взломал сеть умных холодильников.
+# Теперь он использует их в качестве серверов "Пегого дудочника".
+# Помогите владельцу фирмы отыскать все зараженные холодильники.
+# Для каждого холодильника существует строка с данными, состоящая из строчных букв и цифр,
+# и если в ней присутствует слово "anton" (необязательно рядом стоящие буквы,
+# главное наличие последовательности букв), то холодильник заражен и нужно вывести номер холодильника,
+# нумерация начинается с единицы.
+
+# В первой строке подаётся число n – количество холодильников. В последующих n строках вводятся строки,
+# содержащие латинские строчные буквы и цифры, в каждой строке от 5 до 100 символов.
+
+# Программа должна вывести номера зараженных холодильников через пробел.
+# Если таких холодильников нет, ничего выводить не нужно.
+def check_str(text:str, pattern:str):
+    for char in pattern:
+        if text.find(char) != -1:
+            text = text[text.find(char):]
         else:
-            current_count = 1
+            return False
+    return True
 
-    return max_count
 
+res_lst = []
+n = int(input())
+lst_patt = 'anton'
 
-str_in = input()
-print(max_consecutive_chars(str_in))
+for i in range(1, n + 1):
+    res = check_str(input(), lst_patt)
+    if res:
+        res_lst.append(i)
 
+print(*res_lst)
