@@ -872,22 +872,44 @@ import time
 
 # Программа должна вывести номера зараженных холодильников через пробел.
 # Если таких холодильников нет, ничего выводить не нужно.
-def check_str(text:str, pattern:str):
-    for char in pattern:
-        if text.find(char) != -1:
-            text = text[text.find(char):]
-        else:
-            return False
-    return True
+# def check_str(text:str, pattern:str):
+#     for char in pattern:
+#         if text.find(char) != -1:
+#             text = text[text.find(char):]
+#         else:
+#             return False
+#     return True
+#
+#
+# res_lst = []
+# n = int(input())
+# lst_patt = 'anton'
+#
+# for i in range(1, n + 1):
+#     res = check_str(input(), lst_patt)
+#     if res:
+#         res_lst.append(i)
+#
+# print(*res_lst)
 
 
-res_lst = []
-n = int(input())
-lst_patt = 'anton'
+# На вход программе подается строка текста. Напишите программу, которая выводит на экран символ,
+# который появляется наиболее часто.
+#
+# На вход программе подается строка текста. Текст может содержать строчные и заглавные буквы английского
+# и русского алфавита, а также цифры.
+#
+# Примечание 1. Если таких символов несколько, следует вывести последний по порядку символ.
+#
+# Примечание 2. Следует различать заглавные и строчные буквы, а также буквы русского и английского алфавита.
+str_in = 'jfnmdbsdfnsjfqenfdssjdfhsdjlkppppppppppppppppppgggggxxzzzssswwwwwwwwwwwwwwwwwwfgdfxdfg'
 
-for i in range(1, n + 1):
-    res = check_str(input(), lst_patt)
-    if res:
-        res_lst.append(i)
+dct = {}
+for i in str_in[::-1]:
+    if i not in dct:
+        dct[i] = 1
+    else:
+        dct[i] += 1
 
-print(*res_lst)
+most_char = max(dct, key=dct.get)
+print(most_char)
