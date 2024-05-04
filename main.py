@@ -902,14 +902,37 @@ import time
 # Примечание 1. Если таких символов несколько, следует вывести последний по порядку символ.
 #
 # Примечание 2. Следует различать заглавные и строчные буквы, а также буквы русского и английского алфавита.
-str_in = 'jfnmdbsdfnsjfqenfdssjdfhsdjlkppppppppppppppppppgggggxxzzzssswwwwwwwwwwwwwwwwwwfgdfxdfg'
+# str_in = 'jfnmdbsdfnsjfqenfdssjdfhsdjlkppppppppppppppppppgggggxxzzzssswwwwwwwwwwwwwwwwwwfgdfxdfg'
+#
+# dct = {}
+# for i in str_in[::-1]:
+#     if i not in dct:
+#         dct[i] = 1
+#     else:
+#         dct[i] += 1
+#
+# most_char = max(dct, key=dct.get)
+# print(most_char)
 
-dct = {}
-for i in str_in[::-1]:
-    if i not in dct:
-        dct[i] = 1
-    else:
-        dct[i] += 1
 
-most_char = max(dct, key=dct.get)
-print(most_char)
+# some_map = list(map(int, '527 9486'.split()))
+# x = some_map[0]
+# y = some_map[1]
+# counter = 0
+# for i in range(x,y+1):
+#     if (x%i == 0 and y%i == 0) and (i%x == 0 and i%y == 0):
+#         counter+=1
+#
+# print(counter)
+
+
+s = 1234.5678
+
+def get_nums(s, before, after):
+    left, right = str(s).split('.')
+    left = left[-before:]
+    right = right[:after]
+    return float(left + '.' + right)
+
+
+print(get_nums(s, 2, 3))
